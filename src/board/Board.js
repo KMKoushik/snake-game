@@ -11,6 +11,8 @@ export default class App extends React.Component {
         this.isGameOver = this.isGameOver.bind(this);
         this.generateFood = this.generateFood.bind(this);
         this.didSnakeEatFood = this.didSnakeEatFood.bind(this);
+        this.initGame = this.initGame.bind(this);
+
     }
 
     initGame() {
@@ -99,7 +101,7 @@ export default class App extends React.Component {
                         <div className="food-cell" style={{ "left": this.state.foodCoordinate[0] * 4 + "%", "top": this.state.foodCoordinate[1] * 4 + "%" }}> </div>
                     </div>
                     <div>
-                        <p >Score : {this.state.score}</p>
+                        <p style={{"fontFamily":"SnakeFont"}}>Score : {this.state.score}</p>
                     </div>
                 </div>
             );
@@ -108,6 +110,7 @@ export default class App extends React.Component {
                 <div>
                     <div className="board gameover">
                             <p >Game Over! Score : {this.state.score}</p>
+                            <button onClick={() => this.initGame()} className="button">Play again</button>
                     </div>
                 </div>
             );
